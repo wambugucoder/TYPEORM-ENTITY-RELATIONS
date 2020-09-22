@@ -8,10 +8,10 @@ export class Address {
 
   @Column({ type: "varchar" })
   street: string;
-  
+
   @Column({ type: "varchar" })
   city: string;
-  
+
   @Column({ type: "varchar" })
   country: string;
 
