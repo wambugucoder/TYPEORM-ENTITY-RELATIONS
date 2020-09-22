@@ -1,8 +1,8 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 import { User } from './User';
 
 @Entity("tweet_table")
-export class Tweet {
+export class Tweet  {
 
   @PrimaryGeneratedColumn()
   id: string;
@@ -10,7 +10,11 @@ export class Tweet {
   @Column({type:"varchar"})
   data: string;
 
-  @ManyToOne(()=>User,(user:User)=>user.tweets)
+  @ManyToOne(()=>User,(user:User)=>user.tweets,{ 
+    cascade:true,
+    onDelete: 'CASCADE',
+    onUpdate: "CASCADE"
+  })
   author: User;
 }
  

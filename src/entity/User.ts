@@ -1,10 +1,10 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany, BaseEntity} from "typeorm";
 import { Address } from "./Address";
 
 import { Tweet } from "./Tweet";
 
 @Entity("user_table")
-export class User {
+export class User  {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -21,6 +21,9 @@ export class User {
     @OneToOne((type) => Address, (address: Address) => address.user, {
         // With the cascade option, we can save the User object containing nested address data
         cascade: true,
+        onDelete: 'CASCADE',
+         onUpdate:"CASCADE"
+      
         //Load relationships automatically
        // eager: true
     })
