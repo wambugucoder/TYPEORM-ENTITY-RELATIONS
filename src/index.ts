@@ -10,25 +10,25 @@ import routes from "./routes";
 
 
 createConnection().then(async connection => {
-    //Create environment variables
+    // Create environment variables
     dotenv.config();
     // create express app
     const app = express();
-  
-    //BODY-PARSER
+
+    // BODY-PARSER
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
-    //CORS
+    // CORS
     app.use(cors());
 
-    //HELMET
+    // HELMET
     app.use(helmet());
-    
-    //ROUTES
+
+    // ROUTES
     app.use("/api/v1",routes)
 
-    //LISTEN
+    // LISTEN
     const port = process.env.PORT || 5000;
     app.listen(port,() => {
         console.log(`App is listening on port ${port}` )

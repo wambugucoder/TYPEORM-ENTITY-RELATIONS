@@ -10,11 +10,11 @@ export class Tweet  {
   @Column({type:"varchar"})
   data: string;
 
-  @ManyToOne(()=>User,(user:User)=>user.tweets,{ 
+  @ManyToOne(()=>User,(user:User)=>user.tweets,{
     cascade:true,
     onDelete: 'CASCADE',
     onUpdate: "CASCADE"
   })
   author: User;
 }
- 
+
