@@ -16,7 +16,7 @@ export const PostUser = async (req: Request, res: Response, next: NextFunction)=
 export const getUsers = async (req: Request, res: Response, next: NextFunction) => {
 
     const userRepository = getRepository(User);
-    userRepository.find({ relations:["address"] })
+    userRepository.find({ relations:["address","tweets"] })
         .then((users) => { res.status(200).json(users) })
         .catch((err) => { res.json(err) });
 
