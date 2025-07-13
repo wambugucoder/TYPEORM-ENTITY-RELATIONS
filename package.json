@@ -22,7 +22,7 @@
       "helmet": "^4.1.1",
       "pg": "^7.3.0",
       "reflect-metadata": "^0.1.10",
-      "typeorm": "^0.2.26"
+      "typeorm": "^0.3.18"
    },
    "scripts": {
       "start": "ts-node src/index.ts",
